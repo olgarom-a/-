@@ -9,10 +9,6 @@ def post_order(order):
         headers = data.headers)
 
 response = post_order(data.creating_an_order)
-print(response.status_code)
-print(response.json())
 
 def get_order(track):
     return requests.get(configuration.URL_SERVICE + configuration.RECEIVING_AN_ORDER + str(track))
-
-print(response.status_code)
