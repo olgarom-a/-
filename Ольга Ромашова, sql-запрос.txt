@@ -1,0 +1,20 @@
+Ольга Ромашова, 23А когорта - дипломный проект
+
+Задание 1
+
+SELECT c.login, COUNT(DISTINCT ords.track) as indelivery_count
+FROM "Couriers" AS c
+RIGHT JOIN "Orders" AS ords ON c.id = ords."courierId"
+WHERE "inDelivery" = true
+GROUP BY c.login;
+
+Задание 2
+
+SELECT DISTINCT track, 
+CASE
+WHEN finished = true THEN 2
+WHEN cancelled = true THEN -1
+WHEN "inDelivery" = true THEN 1
+ELSE 0
+END AS status
+FROM "Orders";
